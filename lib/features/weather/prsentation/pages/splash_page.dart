@@ -3,17 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../../app/utils/internet_checker.dart';
 import 'home_page.dart';
 
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
 
   @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState(){
+    checkNetwork();
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 2), () {
-      Get.off(() =>  HomePage());
-    });
 
     return  Scaffold(
       body: Center(
@@ -26,5 +34,17 @@ class SplashPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  checkNetwork() {
+    isInternetAvailable().then((internet) {
+      if (internet) {
+        Timer(const Duration(seconds: 2), () {
+          Get.off(() =>  HomePage());
+        });
+      }else{
+        Get.snackbar('No network!', 'Please ensure your network connection.');
+      }
+    });
   }
 }

@@ -34,15 +34,15 @@ class WeatherController extends GetxController {
       errorMessage.value = e.toString();
       weather.value = null;
     } on NetworkException catch (e) {
-      errorMessage.value = 'Network error. Please check your connection';
+      errorMessage.value = 'Network error. Please check your connection.';
     } on NoWeatherDataException catch (e) {
-      errorMessage.value = 'No weather data found for the provided city';
+      errorMessage.value = 'No weather data found for the provided city.';
     } on WeatherException catch (e) {
       // errorMessage.value = 'An unexpected error occurred';
-      errorMessage.value = 'Invalid city name. Please enter a valid city name';
+      errorMessage.value = 'Invalid city name. Please enter a valid city name.';
     } catch (e) {
       // errorMessage.value = 'An unexpected error occurred';
-      errorMessage.value = 'Invalid city name. Please enter a valid city name';
+      errorMessage.value = 'Invalid city name. Please enter a valid city name.';
     } finally {
       isLoading.value = false;
     }

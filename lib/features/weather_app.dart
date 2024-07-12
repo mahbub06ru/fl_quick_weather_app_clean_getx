@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../app/config/route/app_pages.dart';
-import '../app_binding/main_binding.dart';
+import '../app_binding/weather_binding.dart';
 import 'weather/prsentation/pages/splash_page.dart';
 
 
@@ -19,7 +19,6 @@ class WeatherApp extends StatefulWidget {
 }
 
 class _WeatherAppState extends State<WeatherApp> {
-  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   void initState() {
@@ -42,9 +41,8 @@ class _WeatherAppState extends State<WeatherApp> {
         builder: (_, child) {
           return GetMaterialApp(
             builder: EasyLoading.init(),
-            navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: false,
-            initialBinding: AppBinding(),
+            initialBinding: WeatherBinding(),
             theme: ThemeData(
               textTheme: GoogleFonts.urbanistTextTheme(),
               inputDecorationTheme: InputDecorationTheme(

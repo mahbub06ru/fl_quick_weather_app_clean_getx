@@ -17,83 +17,92 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(Constants.appName),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0.w),
-        child: Column(
-          children: [
-            Padding(
-              padding:  EdgeInsets.all(10.0.w),
-              child: SizedBox(
-                width: double.infinity,
-                child: TextField(
-                  controller: weatherController.cityNameController.value,
-                  onSubmitted: (_) {
-                    weatherController.fetchWeather(weatherController.cityNameController.value.text);
-                  },
-                  textInputAction: TextInputAction.search,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintText: 'Enter city name',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    suffixIcon: IconButton(
-                      icon: const Icon(Icons.search),
-                      onPressed: () {
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding:  EdgeInsets.all(10.0.w),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: TextField(
+                    controller: weatherController.cityNameController.value,
+                    onSubmitted: (_) {
+                      if(weatherController.cityNameController.value.text.trim().isNotEmpty){
                         weatherController.fetchWeather(weatherController.cityNameController.value.text);
-                      },
+                      }else{
+                        Get.snackbar('Oops!', 'Please enter a city first.');
+                      }
+
+                    },
+                    textInputAction: TextInputAction.search,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      hintText: 'Enter city name',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0.r),
+                      ),
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.search),
+                        onPressed: () {
+                          if(weatherController.cityNameController.value.text.trim().isNotEmpty){
+                            weatherController.fetchWeather(weatherController.cityNameController.value.text);
+                          }else{
+                            Get.snackbar('Oops!', 'Please enter a city first.');
+                          }
+                        },
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Obx(() {
-                      if (weatherController.isLoading.value) {
-                        return const CircularProgressIndicator();
-                      } else if (weatherController.errorMessage.isNotEmpty) {
-                        return Text(
-                          weatherController.errorMessage.value,
-                          style: const TextStyle(color: Colors.red),
-                        );
-                      } else if (weatherController.weather.value != null) {
-                        final weather = weatherController.weather.value!;
-                        return Column(
-                          children: [
-                            Text(
-                              weather.cityName,
-                              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              '${weather.temperature}°C',
-                              style: const TextStyle(fontSize: 24),
-                            ),
-                            Text(
-                              weather.description ?? '',
-                              style: const TextStyle(fontSize: 24),
-                            ),
-                            Image.network(
-                              'http://openweathermap.org/img/wn/${weather.icon}@2x.png',
-                            ),
-                          ],
-                        );
-                      } else {
-                        return Container();
-                      }
-                    }),
-                  ],
-                ),
+              SizedBox(height: 50.h,),
+              Column(
+                children: [
+                  Obx(() {
+                    if (weatherController.isLoading.value) {
+                      return const CircularProgressIndicator();
+                    } else if (weatherController.errorMessage.isNotEmpty) {
+                      return Text(
+                        weatherController.errorMessage.value,
+                        style:  TextStyle(color: Colors.red,fontSize: 24.sp, fontWeight: FontWeight.normal),
+                      );
+                    } else if (weatherController.weather.value != null) {
+                      final weather = weatherController.weather.value!;
+                      return Column(
+                        children: [
+                          Text(
+                            weather.cityName,
+                            style:  TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '${weather.temperature}°C',
+                            style:  TextStyle(fontSize: 24.sp),
+                          ),
+                          Text(
+                            weather.description ?? '',
+                            style:  TextStyle(fontSize: 24.sp),
+                          ),
+                          Image.network(
+                            'http://openweathermap.org/img/wn/${weather.icon}@2x.png',
+                          ),
+                        ],
+                      );
+                    } else {
+                      return Container();
+                    }
+                  }),
+                ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
