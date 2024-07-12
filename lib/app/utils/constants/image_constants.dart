@@ -1,0 +1,70 @@
+class ImageConstants {
+  static String assetAccounts = 'assets/images/svg/accounts.svg';
+  static String assetDelete = 'assets/images/svg/deletesvg.svg';
+  static String assetAddCircle = 'assets/images/svg/add-circle.svg';
+  static String assetArrowLeft = 'assets/images/svg/arrow-left.svg';
+  static String assetArrowLeftWhite = 'assets/images/svg/arrow_left_white.svg';
+  static String assetArrowRight = 'assets/images/svg/arrow_right.svg';
+  static String assetBag = 'assets/images/svg/bag.svg';
+  static String assetDashFood = 'assets/images/svg/dash_food.svg';
+  static String assetDashCategory = 'assets/images/svg/dash_category.svg';
+  static String assetCall = 'assets/images/svg/Call.svg';
+  static String assetChevronRight = 'assets/images/svg/arrow_right.svg';
+  static String assetCustomers = 'assets/images/svg/customers.svg';
+  static String assetEdit = 'assets/images/svg/edit.svg';
+  static String assetEyeOff = 'assets/images/svg/eye-off.svg';
+  static String assetEye = 'assets/images/svg/eye.svg';
+  static String assetHelp = 'assets/images/svg/help.svg';
+  static String assetHolidays = 'assets/images/svg/holidays.svg';
+  static String assetHome = 'assets/images/svg/home_light.svg';
+  static String assetHomeDark = 'assets/images/svg/home_dark.svg';
+  static String assetHomeDark2 = 'assets/images/svg/home_dark2.svg';
+  static String assetMessage = 'assets/images/svg/message.svg';
+  static String assetNoodlesDark = 'assets/images/svg/noodles_dark.svg';
+  static String assetNoodles = 'assets/images/svg/noodles_light.svg';
+  static String assetOffers = 'assets/images/svg/offers.svg';
+  static String assetOffersDark = 'assets/images/svg/offer_dark.svg';
+  static String assetPlus= 'assets/images/svg/plus.svg';
+  static String assetProfileDark= 'assets/images/svg/profile_dark.svg';
+  static String assetRating= 'assets/images/svg/rating.svg';
+  static String assetRiders= 'assets/images/svg/riders.svg';
+  static String assetSetting= 'assets/images/svg/settings-02.svg';
+  static String assetStar= 'assets/images/svg/star.svg';
+  static String assetUpload= 'assets/images/svg/upload.svg';
+  static String assetUserAdd= 'assets/images/svg/user-add.svg';
+  static String assetArrowDown= 'assets/images/svg/arrow_bottom_down.svg';
+  static String assetClickToFood= 'assets/images/svg/click_to_food.svg';
+  static String assetEmail= 'assets/images/svg/email.svg';
+  static String assetLock= 'assets/images/svg/lock.svg';
+  static String assetFoodItem= 'assets/images/svg/food_item.svg';
+  static String assetProfileItem= 'assets/images/svg/profile_item.svg';
+  static String assetCalendar= 'assets/images/svg/calendar.svg';
+  static String assetNoteDark= 'assets/images/svg/note_dark.svg';
+  static String assetNote= 'assets/images/svg/note_light.svg';
+  static String assetProfile= 'assets/images/svg/profile_light.svg';
+  static String assetOrder= 'assets/images/svg/order_light.svg';
+  static String assetOrderDark= 'assets/images/svg/order_dark.svg';
+  static String assetRightMarkColor= 'assets/images/svg/right_mark_color.svg';
+  static String assetRightMark= 'assets/images/svg/right_mark_white.svg';
+  static String assetClock= 'assets/images/svg/clock.svg';
+  static String assetNoOrder= 'assets/images/svg/no_order.svg';
+  static String assetLocation= 'assets/images/svg/location.svg';
+  static String assetMapBG= 'assets/images/svg/maps.svg';
+  static String assetPin= 'assets/images/svg/pin.svg';
+  static String assetGps= 'assets/images/svg/gps.svg';
+  static String assetCross= 'assets/images/svg/cross.svg';
+
+  //png
+  static String assetMapBGPNG= 'assets/images/png/maps.png';
+  static String assetBGProfile= 'assets/images/png/profile_bg.png';
+  static String assetFoods= 'assets/images/png/foods.png';
+  static String assetNoImage= 'assets/images/png/no_image.png';
+  static String assetPerson= 'assets/images/png/person.png';
+  static String assetProf= 'assets/images/png/profile_bg.png';
+  static String assetFoodDetails= 'assets/images/png/food_details.png';
+  static String assetNoImageCircular= 'assets/images/png/no_image_circular.png';
+  static String assetNoImageFood= 'assets/images/png/no_image_food.png';
+  static String assetNoImageRounded= 'assets/images/png/no_image_rounded.png';
+
+
+}
