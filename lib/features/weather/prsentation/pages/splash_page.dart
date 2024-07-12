@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'weather_page.dart';
+import 'home_page.dart';
 
 
 class SplashPage extends StatelessWidget {
@@ -12,7 +12,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 2), () {
-      Get.off(() => const HomePage());
+      Get.off(() =>  HomePage());
     });
 
     return  Scaffold(
