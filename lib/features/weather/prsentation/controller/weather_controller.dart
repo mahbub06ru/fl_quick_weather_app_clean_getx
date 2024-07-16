@@ -16,6 +16,9 @@ class WeatherController extends GetxController {
   var errorMessage = ''.obs;
   var cityNameController = TextEditingController().obs;
 
+  var cityNames = <String>[].obs;
+  var favoriteCities = <String>[].obs;
+
   Future<void> fetchWeather(String cityName) async {
     isLoading.value = true;
     try {
@@ -38,19 +41,32 @@ class WeatherController extends GetxController {
     } on NoWeatherDataException catch (e) {
       errorMessage.value = 'No weather data found for the provided city.';
     } on WeatherException catch (e) {
-      // errorMessage.value = 'An unexpected error occurred';
       errorMessage.value = 'Invalid city name. Please enter a valid city name.';
     } catch (e) {
-      // errorMessage.value = 'An unexpected error occurred';
       errorMessage.value = 'Invalid city name. Please enter a valid city name.';
     } finally {
       isLoading.value = false;
     }
   }
 
+  void addCity(String cityName) {
+    cityNames.add(cityName);
+  }
+
+  void toggleFavorite(String cityName) {
+    if (favoriteCities.contains(cityName)) {
+      favoriteCities.remove(cityName);
+    } else {
+      favoriteCities.add(cityName);
+    }
+
+  }
+
+  bool isFavorite(String cityName) {
+    return favoriteCities.contains(cityName);
+  }
+
   String _mapFailureToMessage(failure) {
     return failure.toString();
   }
-
-
 }
